@@ -27,7 +27,14 @@ export default {
   // Proxy created: /fakerapi  -> https://fakerapi.it/api/v1/                                                                                                      16:17:34
   // Proxy rewrite rule created: "^/fakerapi/" ~> ""
   async fetch() {
-    await this.$store.dispatch('products/fetchProducts')
+    await this.$store.dispatch('products/fetchProducts').then(
+      (response) => {
+        console.log(response)
+      },
+      (error) => {
+        console.log(error.response)
+      }
+    )
   }
 }
 </script>

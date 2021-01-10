@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 export default {
   mode: 'universal',
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -38,16 +40,14 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     proxy: true,
-    debug: true,
-    baseURL: 'https://fakerapi.it/api/v1/'
+    debug: true
   },
-
   // Proxy configuration
   proxy: {
-    '/fakerapi': {
+    '/fakerapi/': {
       target: 'https://fakerapi.it/api/v1/',
       pathRewrite: {
-          '^/fakerapi/': '/'
+        '^/fakerapi/': ''
       },
       changeOrigin: true
     }
