@@ -47,3 +47,32 @@ pages/index.vue:21-23
 ```
 
 I don't know if this is a bug in '@nuxtjs/axios' or '@nuxtjs/proxy' or have I just missconfigured everything?
+
+## Update
+
+The problem was fixed in this demo project with modifying pathRewrite rule:
+```
+pathRewrite: {
+  '^/fakerapi/': ''
+}
+```
+
+The problem still existed in my 'original' project, even after modifying pathRewrite rule in the same way. After futher testing I have discovered that the problem was API_URL environment variable in the .env file. This variable is somehow used in the baseURL even if it's not used nowhere in the nuxt config.
+
+After deleting this variable and restarting dev server SSR work again.
+
+Next step is to test a migration from @nuxtjs/dotenv module to use new runtime config which has been released as of Nuxt v2.13 to be able to use env without existing problems.
+
+With empty .env:
+```
+baseURL: 'http://localhost:3000/'
+status: 'OK'
+code: 200
+```
+
+With API_URL in .env
+```
+baseURL: 'https://fakerapi.it/api/v1/'
+status: 'Not found'
+code: 404
+```
