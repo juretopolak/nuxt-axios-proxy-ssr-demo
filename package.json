@@ -13,8 +13,5 @@
     "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6"
-  },
-  "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.1"
   }
 }
