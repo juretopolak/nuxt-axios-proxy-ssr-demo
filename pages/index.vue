@@ -17,15 +17,10 @@ export default {
     }
   },
 
-  // Proxy rewrite rule works in the client
   // mounted() {
   //   this.$store.dispatch('products/fetchProducts')
   // },
 
-  // node console: responseUrl: 'https://fakerapi.it/api/v1/fakerapi/products'
-  // 'fakerapi' should be rerewritten with '' but its not so request is made on the wrong url
-  // Proxy created: /fakerapi  -> https://fakerapi.it/api/v1/                                                                                                      16:17:34
-  // Proxy rewrite rule created: "^/fakerapi/" ~> ""
   async fetch() {
     await this.$store.dispatch('products/fetchProducts').then(
       (response) => {

@@ -6,7 +6,7 @@ export const actions = {
   async fetchProducts({ commit }) {
     try {
       const response = await this.$axios.get(
-        '/fakerapi/products' // remove 'fakerapi' to make it work with SSR
+        '/fakerapi/products'
       )
       console.log(response)
       commit('setProducts', response.data.data)

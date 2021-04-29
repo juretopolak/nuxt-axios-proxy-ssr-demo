@@ -44,7 +44,7 @@ export default {
   // Proxy configuration
   proxy: {
     '/fakerapi/': {
-      target: 'https://fakerapi.it/api/v1/',
+      target: process.env.FAKER_API_URL,
       pathRewrite: {
         '^/fakerapi/': ''
       },
